@@ -2,18 +2,29 @@ window.onload = () => {
     getTextFromInput();
 }
 
+const purchasedListArray = [];
+
 function getTextFromInput() {
+    let itemListArray = [];
     // Target the input and button
     const inputField = document.querySelector("input");
     const addItemButton = document.querySelector("button");
 
     // add listener to the button to fire the function and pass the input value in.
     addItemButton.addEventListener("click", () =>  {
-        createShoppingList(inputField.value);
+        itemListArray = [...itemListArray, inputField.value]; 
+        let newArray = Array.from(new Set(itemListArray))
+
+        console.log(itemListArray);
+        console.log(newArray);
+        newArray.map( (items) => {
+            return createShoppingList(items);
+        })
         inputField.value = "";
     });
 }
 
+// Helper function that creates the LI
 function createShoppingList(userInput) {
     //Create our element variables
     const orderedList = document.getElementById("item-list");

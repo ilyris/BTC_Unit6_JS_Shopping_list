@@ -61,3 +61,6 @@ input.checkbox {
 .active {
     background-color: deepskyblue;
 }
+.purchased {
+    background-color: #666;
+}
